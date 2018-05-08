@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>css光标下滑线</title>
+	<link rel="stylesheet" type="text/css" href="./reset.css">
+	<style type="text/css">
+		body {
+			background-color: #123;
+		}
+		h2 > a {
+			padding: 10px 0;
+			position: relative;
+			color: #fff;
+			text-decoration: none;
+		}
+		h2 > a:before {
+			content: '';
+			position: absolute;
+			width: 0%;
+			height: 2px;
+			bottom: 0;
+			left: 0;
+			background-color: #fff;
+			transition: width .3s ease-in-out 0s;
+			-webkit-transition: width .3s ease-in-out 0s;
+		}
+		h2 > a:after {
+			content: '';
+			position: absolute;
+			width: 0%;
+			height: 2px;
+			bottom: 0;
+			right: 0;
+			background-color: #fff;
+			transition: width .3s ease-in-out 0s;
+			-webkit-transition: width .3s ease-in-out 0s;
+		}
+		h2:hover a:after,
+		h2:hover a:before {
+			width: 50%;
+		}
+	</style>
+</head>
+<body>
+	<h2>
+		<a href="javascript:;">Hover this link</a>
+	</h2>
+</body>
+</html>
