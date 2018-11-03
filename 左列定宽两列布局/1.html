@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<style type="text/css">
+		.left {
+      float: left;
+      width: 100px;
+      position: relative;
+
+      background: blue;
+      height: 100px;
+    }
+    .right-fix {
+      float: right;
+      width: 100%;
+      margin-left: -100px;
+    }
+    .right {
+      margin-left: 120px;
+      background: green;
+    }
+	</style>
+</head>
+<body>
+	<div class="parent">
+    <div class="left">left</div>
+    <div class="right-fix">
+      <div class="right">
+        <p>right</p>
+        <p>right</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
