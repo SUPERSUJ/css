@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>圣杯布局</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<style type="text/css">
+		.container {
+      display: flex;
+    }
+    .main {
+      flex-grow: 1;
+      height: 300px;
+      background-color: red;
+    }
+    .left {
+      order: -1;
+      flex: 0 1 200px;
+      margin-right: 20px;
+      height: 300px;
+      background-color: blue;
+    }
+    .right {
+      flex: 0 1 100px;
+      margin-left: 20px;
+      height: 300px;
+      background-color: green;
+    }
+	</style>
+</head>
+<body>
+    <!-- 简单实用，未来的趋势，需要考虑浏览器的兼容性。 -->
+	<div class="container">
+    <div class="main">圣杯布局</div>
+    <div class="left">left</div>
+    <div class="right">right</div>
+  </div>
+</body>
+</html>

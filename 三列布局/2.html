@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<style type="text/css">
+		.left {
+      float: left;
+      width: 100px;
+      height: 200px;
+      background-color: red;
+    }
+    .right {
+      float: right;
+      width: 200px;
+      height: 200px;
+      background-color: blue;
+    }
+    .main {
+      margin: 0 220px 0 120px;
+      overflow: hidden;
+      background-color: green;
+    }
+	</style>
+</head>
+<body>
+    <!-- 缺点跟方法一类似，主要内容模块无法最先加载，当页面中内容较多时会影响用户体验。因此为了解决这个问题，有了下面要介绍的布局方案双飞翼布局。 -->
+	<div class="container">
+    <div class="left">left</div>
+    <div class="right">right</div>
+    <div class="main">main</div>
+  </div>
+</body>
+</html>

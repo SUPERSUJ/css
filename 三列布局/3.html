@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>双飞翼布局</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<style type="text/css">
+		.content {
+      float: left;
+      width: 100%;
+    }
+    .main {
+      height: 200px;
+      margin-left: 110px;
+      margin-right: 220px;
+      background: green;
+    }
+    .left {
+      float: left;
+      height: 200px;
+      width: 110px;
+      margin-left: -100%;
+      background-color: red;
+    }
+    .right {
+      width: 200px;
+      height: 200px;
+      float: right;
+      margin-left: -200px;
+      background-color: blue;
+    }
+	</style>
+</head>
+<body>
+    <!-- 利用的是浮动元素 margin 负值的应用，感兴趣的同学可以上网搜搜原理。
+    主体内容可以优先加载，HTML 代码结构稍微复杂点。 -->
+	<div class="content">
+    <div class="main">双飞翼布局</div>
+  </div>
+  <div class="left">left</div>
+  <div class="right">right</div>
+</body>
+</html>
