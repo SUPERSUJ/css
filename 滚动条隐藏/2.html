@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>hover 滚动条显示</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<style type="text/css">
+		html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    /* 不会触发重排 */
+    .demo {
+      height: 100px;
+      width: 100px;
+      overflow-y: auto;
+      visibility: hidden;
+      overflow-x: hidden;
+      word-break: break-all;
+      /* 强制不换行 
+      p { white-space:nowrap; }
+      自动换行 
+      p { word-wrap:break-word; }
+      强制英文单词断行
+      p { word-break:break-all; } */
+    }
+    .content,
+    .demo:focus,
+    .demo:hover {
+      visibility: visible;
+    }
+	</style>
+</head>
+<body>
+	<div class="demo">
+    <div class="content">
+        Hover me! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere velit, repellat voluptas ipsa impedit fugiat voluptatibus. Facilis deleniti, nihil voluptate perspiciatis iure adipisci magni, nisi suscipit aliquam, quam, et excepturi! Lorem
+        ipsum dolor sit amet, consectetur adipisicing elit. Facere velit, repellat voluptas ipsa impedit fugiat voluptatibus. Facilis deleniti, nihil voluptate perspiciatis iure adipisci magni, nisi suscipit aliquam, quam, et excepturi!
+    </div>
+  </div>
+</body>
+</html>
