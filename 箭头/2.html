@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>左右上下箭头</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<style type="text/css">
+		html,
+    body {
+      margin: 0;
+      padding: 0;
+      background: #00b894;
+    }
+    .icon {
+      position: absolute;
+      width: 80px;
+      height: 60px;
+      cursor: pointer;
+    }
+    .arrow {
+      position: absolute;
+      top: 25px;
+      width: 90%;
+      height: 10px;
+      background-color: white;
+      box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
+      animation-name: levelMove;
+      animation-duration: 0.5s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+    }
+    .arrow::after {
+      content: '';
+      position: absolute;
+      width: 60%;
+      height: 10px;
+      top: -12px;
+      right: -8px;
+      background: white;
+      transform: rotate(45deg);
+    }
+    .arrow::before {
+      content: '';
+      position: absolute;
+      width: 60%;
+      height: 10px;
+      top: 12px;
+      right: -8px;
+      background: white;
+      box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
+      transform: rotate(-45deg);
+    }
+    @keyframes levelMove {
+      0% {
+        left: 0;
+      }
+      50% {
+        left: 6px;
+      }
+      100% {
+        left: 0;
+      }
+    }
+	</style>
+</head>
+<body>
+	<div class="icon">
+    <div class="arrow"></div>
+  </div>
+</body>
+</html>

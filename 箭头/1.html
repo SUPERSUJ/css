@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>左右上下箭头</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<style type="text/css">
+		html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    .arrow {
+      border: solid black;
+      border-width: 0 2px 2px 0;
+      padding: 5px;
+      display: inline-block;
+    }
+    .right {
+      transform: rotate(-45deg);
+    }
+    .left {
+      transform: rotate(135deg);
+    }
+    .top {
+      transform: rotate(-135deg);
+    }
+    .bottom {
+      transform: rotate(45deg);
+    }
+	</style>
+</head>
+<body>
+	<i class="arrow right"></i>
+	<i class="arrow left"></i>
+	<i class="arrow top"></i>
+	<i class="arrow bottom"></i>
+</body>
+</html>
