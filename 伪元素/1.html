@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>伪元素</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<style type="text/css">
+		html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    .p1:before {
+      content: 'this is';
+      font-weight: bold;
+      font-style: italic;
+    }
+    .p2:before {
+      content: '';
+      background: url('../imgs/stop.png') no-repeat;
+      background-size: contain;
+      width: 20px;
+      height: 20px;
+      float: left;
+      margin: 0 6px 0 0;
+    }
+    .p3:after {
+      content: '';
+      display: inline-block;
+      background: url('../imgs/stop.png') no-repeat top right;
+      background-size: contain;
+      width: 14px;
+      height: 12px;
+    }
+    .p4 a {
+      text-decoration: none;
+      font-size: bold;
+      color: #000;
+    }
+    .p4 a:after {
+      content: '/';
+    }
+    .p4 a:first-child:before {
+      content: '>>';
+    }
+    .p4 a:last-child:after {
+      content: '';
+    }
+    .p5 span {
+      float: left;
+    }
+    .p5 div:before {
+      content: '';
+      display: block;
+      clear: both;
+    }
+    .p6 .quoted {
+      font-size: Georgia;
+      font-size: 16px;
+      line-height: 20px;
+      display: block;
+      margin: 14px 0 0 0;
+      font-style: italic;
+    }
+    .p6 .quoted:before {
+      content: '“';
+      font-size: 20px;
+      color: black;
+      line-height: 0;
+      display: inline-block;
+      margin: 0 6px 0 0;
+    }
+    .p6 .quoted:after {
+      content: " ”";
+      font-size: 20px;
+      color: black;
+      line-height: 0;
+      display: inline-block;
+      margin: 0 0 0 4px;
+    }
+    .p7 {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    .p7:before {
+      content: '';
+      display: inline-block;
+      margin: 0 0 3px 20px;
+      height: 2px;
+      text-shadow: none;
+      background-color: #999;
+      width: 20%;
+    }
+    .p7:after {
+      content: ' ';
+      display: inline-block;
+      margin: 0 20px 3px 0;
+      height: 2px;
+      text-shadow: none;
+      background-color: #999;
+      width: 20%;
+    }
+	</style>
+</head>
+<body>
+	<p class="p1">
+    paragraph text
+  </p>
+  <p class="p2">
+    paragraph text
+  </p>
+  <p class="p3">
+    paragraph text
+  </p>
+  <div class="p4">
+    <a href="javscript:;">Home</a>
+    <a href="javscript:;">Team</a>
+    <a href="javscript:;">Developers</a>
+  </div>
+  <div class="p5">
+    <span>
+      float1
+    </span>
+    <span>
+      float2
+    </span>
+    <div>content</div>
+  </div>
+  <p class="p6">
+    Martin Fowler said
+    <span class="quoted">Any fool can write code that a computer can understand. 
+    Good programmers write code that humans can understand.</span>
+  </p>
+  <p class="p7">
+    css is awesome
+  </p>
+</body>
+</html>
