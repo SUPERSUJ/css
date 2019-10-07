@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>table 清理浮动</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+  <style type="text/css">
+    * {
+      box-sizing: border-box;
+    }
+		input {
+      padding: 10px;
+      font-size: 17px;
+      border: 1px solid gray;
+      float: left;
+      width: 80%;
+      background: #f1f1f1;
+    }
+    button {
+      float: left;
+      width: 20%;
+      padding: 10px;
+      background: #2196F3;
+      color: white;
+      font-size: 17px;
+      border: 1px solid grey;
+      border-left: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0b7dda;
+    }
+    .search-bar {
+      width: 400px;
+      margin: 0 auto;
+    }
+    .search-bar::after {
+      content: '';
+      clear: both;
+      display: table;
+    }
+	</style>
+</head>
+<body>
+  <div class="search-bar">
+    <input type="text" placeholder="search...">
+    <button>
+      <i class="search fa fa-search"></i>
+    </button>
+  </div>
+</body>
+</html>

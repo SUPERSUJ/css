@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <title>ripple button</title>
+  <style>
+    body {
+      background: #36353c;
+    }
+
+    .container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 50px;
+      width: 200px;
+      margin: auto;
+    }
+
+    *[data-animation="ripple"] {
+      height: 100%;
+      width: 100%;
+      display: block;
+      outline: none;
+      padding: 20px;
+      color: #fff;
+      text-transform: uppercase;
+      background: #000;
+      box-sizing: border-box;
+      text-align: center;
+      line-height: 14px;
+      font-family: roboto, helvetica;
+      font-weight: 200;
+      letter-spacing: 1px;
+      text-decoration: none;
+      box-shadow: 0 5px 3px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      /*border-radius: 50px;*/
+      -webkit-tap-highlight-color: transparent;
+      border-radius: 5px;
+    }
+
+    *[data-animation="ripple"]:focus {
+      outline: none;
+    }
+
+    *[data-animation="ripple"]::selection {
+      background: transparent;
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <a data-animation="ripple">Click Me</a>
+  </div>
+  <script>
+    window["tmripple"] =
+/******/ (function (modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if (installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+            /******/
+}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+            /******/
+};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+          /******/
+}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function (exports, name, getter) {
+/******/ 		if (!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+      /******/
+});
+            /******/
+}
+          /******/
+};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function (module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+          /******/
+};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function (object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+        /******/
+})
+/************************************************************************/
+/******/([
+/* 0 */
+/***/ (function (module, exports, __webpack_require__) {
+
+        "use strict";
+
+
+        // Default Settings
+        var settings = {
+          area: "",
+          color: "rgba(255, 255, 255, 0.4)",
+          offsetEl: null,
+          eventListener: "click",
+          mouseMove: false
+        };
+
+        /**
+         * @description Where the magic happens
+         * @param {object} e
+         * @param {string} rippleColor
+         * @param {string} eventListener
+         */
+        function ripple(e, rippleColor, eventListener) {
+          var clickedEl = e.currentTarget;
+          console.log('clickedEl: ', clickedEl);
+          var PageX = eventListener.match(/touch/) ? e.changedTouches[0].pageX : e.clientX;
+          var PageY = eventListener.match(/touch/) ? e.changedTouches[0].pageY : e.clientY;
+          console.log('PageX: ', PageX);
+          console.log('PageY: ', PageY);
+          var btnWidth = clickedEl.clientWidth;
+          console.log('btnWidth: ', btnWidth);
+          var el = clickedEl.getBoundingClientRect();
+          console.log('el: ', el);
+          var rippleOffset = settings.offsetEl ? settings.offsetEl.clientHeight : 0;
+          var btnOffsetTop = el.top + rippleOffset;
+          var btnOffsetLeft = el.left;
+          console.log('btnOffsetTop: ', btnOffsetTop);
+          console.log('btnOffsetLeft: ', btnOffsetLeft);
+          var posMouseX = PageX;
+          var posMouseY = PageY + rippleOffset;
+          var rippleX = posMouseX - btnOffsetLeft;
+          var rippleY = posMouseY - btnOffsetTop;
+          console.log('rippleX: ', rippleX);
+          console.log('rippleY: ', rippleY);
+
+          var baseCSS = `position: absolute;width:${btnWidth * 2}px;height:${btnWidth * 2 }px;border-radius: 50%;
+          transition: transform 700ms, opacity 700ms;
+          transition-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);background: ${rippleColor};
+          background-position: center;background-repeat: no-repeat;
+          background-size: 100%;
+          left: ${rippleX - btnWidth}px;top: ${rippleY - btnWidth}px;transform: scale(0);pointer-events: none;`;
+          console.log('baseCSS: ', baseCSS);
+          // Prepare the dom
+          var rippleEffect = document.createElement("span");
+          rippleEffect.style.cssText = baseCSS;
+
+          // Add some css for prevent overflow errors
+          clickedEl.style.overflow = "hidden";
+
+          // Check if the element is not static because the ripple is in absolute
+          if (window.getComputedStyle(clickedEl).position === "static") {
+            clickedEl.style.position = "relative";
+          }
+
+          // Check for the mousemove event
+          if (settings.mouseMove) {
+            settings.mouseMove = false;
+            return;
+          }
+
+          clickedEl.appendChild(rippleEffect);
+
+          // start animation
+          // requestAnimationFrame(function () {
+          //   rippleEffect.style.cssText = baseCSS + " transform: scale(1); opacity: 0;";
+          // });
+
+          // setTimeout(function () {
+          //   rippleEffect.remove();
+          // }, 700);
+        }
+
+        /**
+         * @description Prevent ripple when scrolling (Mobile Only)
+         * @param {string} eventListener
+         */
+        function onDrag(eventListener) {
+          if (eventListener === "touchend") {
+            document.getElementsByTagName("body")[0].addEventListener("touchmove", function () {
+              settings.mouseMove = true;
+            });
+          }
+        }
+
+        function attachRipple(els, rippleColor, eventListener) {
+          for (var i = 0; i < els.length; i += 1) {
+            var currentBtn = els[i];
+            currentBtn.addEventListener(eventListener, function (e) {
+              return ripple(e, rippleColor, eventListener);
+            });
+          }
+        }
+
+        function attachRippleToAttribute(area, rippleColor, eventListener) {
+          var attributeEl = document.querySelectorAll(area + " [data-animation='ripple']");
+
+          if (attributeEl.length > 0) {
+            attachRipple(attributeEl, rippleColor, eventListener);
+          } else {
+            throw new Error('not found any element with data-animation="ripple"');
+          }
+        }
+
+        function attachRippleToSelectors(selectors, rippleColor, eventListener) {
+          if (selectors) {
+            var selectorsEl = document.querySelectorAll(selectors);
+          } else {
+            throw new Error("You have to enter at least 1 selector");
+          }
+
+          if (selectorsEl.length > 0) {
+            attachRipple(selectorsEl, rippleColor, eventListener);
+          } else {
+            console.warn("No element found with this selector: ", selectors);
+          }
+        }
+
+        module.exports = {
+          init: function init() {
+            var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+            try {
+              var area = settings.area,
+                color = settings.color,
+                offsetEl = settings.offsetEl,
+                eventListener = settings.eventListener;
+
+
+              area = data.area || area;
+              color = data.color || color;
+              offsetEl = data.offsetEl ? this.setOffsetEl(data.offsetEl) : offsetEl;
+              eventListener = data.eventListener || eventListener;
+
+              onDrag(eventListener);
+              attachRippleToAttribute(area, color, eventListener);
+            } catch (e) {
+              console.warn(e.message);
+            }
+          },
+          attachToSelectors: function attachToSelectors() {
+            var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+            try {
+              var elSetting = {
+                color: data.color || settings.color,
+                eventListener: data.eventListener || settings.eventListener
+              };
+              var color = elSetting.color,
+                eventListener = elSetting.eventListener;
+
+
+              attachRippleToSelectors(data.selectors, color, eventListener);
+            } catch (e) {
+              console.warn(e.message);
+            }
+          },
+          setOffsetEl: function setOffsetEl(el) {
+            settings.offsetEl = document.querySelector(el);
+          },
+
+          ripple: ripple
+        };
+
+        /***/
+})
+/******/]);
+
+    tmripple.init()
+  </script>
+</body>
+
+</html>

@@ -15,6 +15,11 @@
     .footer,
     .push {
       height: 50px;
+    }
+    .push {
+      background: red;
+    }
+    .footer {
       background: yellow;
     }
 	</style>
@@ -22,68 +27,15 @@
 <body>
 	<div class="wrapper">
     <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <p>asdfasdfasdf</p>
-    <!-- <div class="push"></div> -->
+    <button class="add">add</button>
+    <div class="push"></div>
   </div>
   <footer class="footer"></footer>
+  <script src="../js/jquery.min.js"></script>
+  <script>
+    $('.add').on('click', function() {
+      $('<p>asdfasdfasdf</p>').insertBefore('.push');
+    })
+  </script>
 </body>
 </html>

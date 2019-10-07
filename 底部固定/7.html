@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="../css/reset.css">
+  <style type="text/css">
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    p {
+      line-height: 100px;
+    }
+
+    header,
+    main,
+    footer {
+      padding: 0 calc(50% - 450px);
+    }
+
+    #add {
+      font-size: 20px;
+      padding: 5px 10px;
+    }
+
+    header,
+    footer {
+      font-size: 30px;
+      background-color: #333;
+      color: white;
+      line-height: 100px;
+      height: 100px;
+    }
+
+
+    body {
+      min-height: 100%;
+      display: table;
+      width: 100%;
+    }
+
+    main {
+      /*   display: table-row-group; */
+      display: table-row;
+      height: 100%;
+    }
+
+    footer {
+      /*   display: table-footer-group; */
+    }
+  </style>
+</head>
+
+<body>
+  <header>Header</header>
+  <main class="content">
+    <button id="add">添加内容试试</button>
+  </main>
+  <footer class="footer">
+    Footer
+  </footer>
+  <script src="../js/jquery.min.js"></script>
+  <script>
+    $("#add").on("click", function() {
+      $("main").append('<p><a href="www.w3cbest.com">www.w3cbest.com</a></p>');
+    })
+  </script>
+</body>
+
+</html>
