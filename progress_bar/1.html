@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>步骤条</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+  <style type="text/css">
+  .container {
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+  }
+  .progress-bar li {
+    float: left;
+    width: 20%;
+    position: relative;
+    text-align: center;
+  }
+  .progress-bar {
+    counter-reset: step;
+  }
+  .progress-bar li:before {
+    /* counter 计数器 */
+    content: counter(step);
+    counter-increment: step;
+    width: 30px;
+    height: 30px;
+    border: 2px solid #bebebe;
+    display: block;
+    margin: 0 auto 10px auto;
+    border-radius: 50%;
+    line-height: 27px;
+    background: white;
+    color: #bebebe;
+    text-align: center;
+    font-weight: bold;
+  }
+  .progress-bar li:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: #979797;
+    top: 15px;
+    left: -50%;
+    z-index: -1;
+  }
+  .progress-bar li:first-child:after {
+    content: none;
+  }
+  .progress-bar li.active + li:after {
+    background: #3aac5d;
+  }
+  .progress-bar li.active:before,
+  .progress-bar li.active + li:before {
+    border-color: #3aac5d;
+    background: #3aac5d;
+    color: white;
+  }
+  </style>
+</head>
+<body>
+	<div class="container">
+    <ul class="progress-bar">
+      <li class="active">Step 1</li>
+      <li class="active">Step 2</li>
+      <li class="active">Step 3</li>
+      <li>Step 4</li>
+      <li>Step 5</li>
+    </ul>
+  </div>
+</body>
+</html>
