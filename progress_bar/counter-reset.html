@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>counter-reset</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+  <style type="text/css">
+    .section  {
+      counter-reset: section -1;
+    }
+    .section li {
+      counter-increment: section 2;
+      /* 2 每次递增2 */
+    }
+    .section li:before {
+      content: counter(section) '-' counter(section);
+    }
+  </style>
+</head>
+<body>
+	<ul class="section">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</body>
+</html>
